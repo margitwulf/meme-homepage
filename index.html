@@ -3,113 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>azzouz.org</title>
+    <title>Richard Azzouz</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #000;
-            overflow: hidden;
-            width: 100vw;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        
-        /* Click to enter overlay */
-        #enter-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
-            z-index: 1000;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
-        
-        #enter-screen h1 {
+        .container {
+            text-align: center;
+        }
+        h1 {
             color: #fff;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
         }
-        
-        #enter-screen p {
-            color: #aaa;
-            font-size: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-        
-        #enter-screen .warning {
-            color: #ff6b6b;
-            font-size: 1rem;
-            margin-top: 2rem;
-        }
-        
-        /* Video container */
-        .video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none;
-        }
-        
-        .video-container.active {
-            display: block;
-        }
-        
-        iframe {
-            width: 100%;
-            height: 100%;
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
             border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
     </style>
 </head>
 <body>
-    <!-- Click to enter (required for audio autoplay) -->
-    <div id="enter-screen" onclick="enterSite()">
-        <h1>👃</h1>
-        <p>Click anywhere to enter</p>
-        <span class="warning">⚠️ SOUND WARNING ⚠️</span>
+    <div class="container">
+        <h1>Welcome to Richard Azzouz</h1>
+        <button class="btn" onclick="alert('👃')">Enter</button>
     </div>
-    
-    <div class="video-container" id="video-container">
-        <!-- Video loads after click -->
-    </div>
-
-    <script>
-        function enterSite() {
-            // Hide enter screen
-            document.getElementById('enter-screen').style.display = 'none';
-            
-            // Show and load video with sound
-            const container = document.getElementById('video-container');
-            container.classList.add('active');
-            
-            // YouTube Shorts video - FULL AUDIO BLAST
-            // autoplay=1, mute=0 (SOUND ON), loop=1
-            container.innerHTML = `
-                <iframe 
-                    src="https://www.youtube.com/embed/ovWkAIDqNvQ?autoplay=1&mute=0&loop=1&playlist=ovWkAIDqNvQ&controls=0&showinfo=0&rel=0&modestbranding=1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            `;
-        }
-    </script>
 </body>
 </html>
